@@ -14,7 +14,7 @@ class Cache::Impl{
     size_type maxMem;
     size_type usedMem;
     Evictor* evictor;
-    mutable pair<int, int> hitRate = {0, 0}; //new addition from HW2 to HW3
+    mutable pair<int, int> hitRate = {0, 0}; 
     hash_func hash_function;
     unordered_map<key_type, val_type, hash_func> cache;
     
@@ -25,7 +25,7 @@ class Cache::Impl{
         bool result = false;
         for (size_type i = 0; i < size; i++){
             newData[i] = val.data_[i];
-        }//changed after HW03, looping using size
+        }looping using size
         if (usedMem <= maxMem - size){ //writing
             val_type newVal;
             newVal.data_ = newData;
@@ -65,7 +65,7 @@ class Cache::Impl{
     }
 
     val_type get (key_type key) const {
-        hitRate.second += 1;//get has been called
+        hitRate.second += 1;
         if (cache.find(key) == cache.end()){
             val_type val = {nullptr, 0};\
             return val;
@@ -74,7 +74,7 @@ class Cache::Impl{
             evictor->touch_key(key);
         }
         hitRate.first += 1;//get was successful
-        val_type newVal;//new addition after HW03
+        val_type newVal;
         newVal.data_ = cache.at(key).data_;
         newVal.size_ = cache.at(key).size_;
         return newVal;
