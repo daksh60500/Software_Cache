@@ -19,7 +19,7 @@ class Cache::Impl{
     unordered_map<key_type, val_type, hash_func> cache;
     
     bool set(key_type key, val_type val){
-        del(key);//added after HW04
+        del(key);
         size_type& size = val.size_;
         byte_type* newData = new byte_type[size];
         bool result = false;
