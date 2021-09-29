@@ -25,7 +25,7 @@ class Cache::Impl{
         bool result = false;
         for (size_type i = 0; i < size; i++){
             newData[i] = val.data_[i];
-        }looping using size
+        }//looping using size
         if (usedMem <= maxMem - size){ //writing
             val_type newVal;
             newVal.data_ = newData;
